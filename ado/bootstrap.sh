@@ -22,6 +22,7 @@ fi
 
 # Initialize variables
 ADO_PAT=""
+GH_PAT="$GITHUB_TOKEN"
 
 # Function to display usage
 usage() {
@@ -49,6 +50,10 @@ while [[ $# -gt 0 ]]; do
             ;;
     esac
 done
+
+# Export tokens for authentication
+export GH_PAT="$GH_PAT"
+export ADO_PAT="$ADO_PAT"
 
 # Check if required parameters are provided
 if [ -z "$ADO_PAT" ]; then
