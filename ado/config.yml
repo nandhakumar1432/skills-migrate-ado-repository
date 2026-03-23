@@ -7,5 +7,5 @@ ado_repository_name: "MigrateFromADORepo-nandha"
 
 ado_url: "https://dev.azure.com/Astalynx"
 
-github_org: "nandha-org"
+github_org: "nandha-quadra"
 target_github_repo_name: "migrated-repo-ADO-to-GitHub"
