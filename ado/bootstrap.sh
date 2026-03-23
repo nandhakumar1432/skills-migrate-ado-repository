@@ -24,6 +24,10 @@ fi
 ADO_PAT=""
 GH_PAT="$GITHUB_TOKEN"
 
+# Read configuration from config.yml
+CONFIG_DIR="$(dirname "$0")"
+GITHUB_ORG=$(grep 'github_org:' "$CONFIG_DIR/config.yml" | sed 's/github_org: "\(.*\)"/\1/')
+
 # Function to display usage
 usage() {
     echo "Usage: $0 --ado-token <token>"
@@ -173,7 +177,7 @@ gh ado2gh migrate-repo \
   --ado-org Astalynx \
   --ado-team-project "$PROJECT_NAME" \
   --ado-repo "$REPOSITORY_NAME" \
-  --github-org nandha-org \
+  --github-org "$GITHUB_ORG" \
   --github-repo migrated-repo-ADO-to-GitHub
 
 echo "✅ Migration completed successfully!"
