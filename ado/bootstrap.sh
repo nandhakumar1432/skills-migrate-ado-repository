@@ -167,3 +167,13 @@ gh api repos/$GITHUB_REPOSITORY/dispatches \
     --field client_payload[project_name]="$PROJECT_NAME" \
     --field client_payload[repository_name]="$REPOSITORY_NAME" \
     --field client_payload[update_readme_work_item_id]="$WORK_ITEM_ID"
+
+echo "🔄 Starting repository migration from Azure DevOps to GitHub..."
+gh ado2gh migrate-repo \
+  --ado-org Astalynx \
+  --ado-team-project "$PROJECT_NAME" \
+  --ado-repo "$REPOSITORY_NAME" \
+  --github-org nandha-org \
+  --github-repo migrated-repo-ADO-to-GitHub
+
+echo "✅ Migration completed successfully!"
